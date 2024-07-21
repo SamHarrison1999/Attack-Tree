@@ -21,3 +21,5 @@ P
  test/data/post_digitisation.json,4\b\4bfcce9a37c5bd50b2c78ceb2803d6c56beab3e5
 O
 test/data/pre-digitisation.json,4\0\40c339c619f0c2d917fe0ca603bd43cd14dfade3
+;
+qodana.yaml,8\5\85c3a901608a6b9adf48d245fa84828b66304e51

@@ -15,7 +15,7 @@ def _widgets_by_name(parent, name, widgets):
 
 
 def find_widget_by_name(parent, name):
-    ''' ui automation function that can find a widget in an application/hierarchy of widgets by its name '''
+    """ ui automation function that can find a widget in an application/hierarchy of widgets by its name """
     widgets = []
     _widgets_by_name(parent, name, widgets)
     if len(widgets) == 0:
@@ -32,7 +32,7 @@ class MyTestCase(unittest.TestCase):
         app.root = tk.Tk()
         app.pre_digitisation_frame = tk.Frame()
         app.post_digitisation_frame = tk.Frame()
-        app.btn1 = tk.Button(app.pre_digitisation_frame, text="Test Button", name="button-one", font=("Verdana", 28), command=lambda :app.post_digitisation(app.post_digitisation_frame, app.pre_digitisation_frame, app.root, app.btn1))
+        app.btn1 = tk.Button(app.pre_digitisation_frame, text="Test Button", name="button-one", font=("Verdana", 28), command=lambda :app.post_digitisation(app.post_digitisation_frame, app.pre_digitisation_frame, app.root, app.btn1, app.btn2))
         assert len(app.pre_digitisation_frame.winfo_children()) == 1
         app.clear_frame(app.pre_digitisation_frame)
         assert len(app.pre_digitisation_frame.winfo_children()) == 0
