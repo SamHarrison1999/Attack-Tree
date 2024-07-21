@@ -1,0 +1,151 @@
+{
+  "Router" : {
+    "Weak Password" : {
+      "Password policies" : ""
+    },
+    "Network Outage" : {
+      "Backup Network" : ""
+    },
+    "Network based attacks" : {
+      "Separate networks" : "",
+      "Firewalls" : ""
+    }
+  },
+  "Computers/Phones" : {
+    "Weak Password" : {
+      "Password policies" : ""
+    },
+    "Outdated Software" : {
+      "Update software" : ""
+    },
+    "Malware" : {
+      "Anti-Virus software" : "",
+      "Block removable storage devices" : ""
+    },
+    "Phishing" : {
+      "Anti-Virus software" : "",
+      "Block removable storage devices" : ""
+    },
+    "Ransomware" : {
+      "Anti-Virus software" : "",
+      "Block removable storage devices" : ""
+    },
+    "Unauthorised Access" : {
+      "MFA" : ""
+    }
+  },
+  "Databases" : {
+    "Unauthorised Access" : {
+      "Firewalls" : "",
+      "PoLP" : ""
+    },
+    "Data Manipulation" : {
+      "Backups ": "",
+      "PoLP" : ""
+    },
+    "Data Erasure" : {
+      "Backups" : "",
+      "PoLP" : ""
+    },
+    "Inject Attacks" : {
+      "Prepared Statements" : "",
+      "Character Escaping" : "",
+      "Character Encoding" : ""
+    }
+  },
+  "Payment System" : {
+    "Identity Theft" : {
+      "Use Secure payment systems" : ""
+    },
+    "Credit card fraud" : {
+      "Use Secure payment systems" : ""
+    },
+    "Unencrypted Data" : {
+      "Use Secure payment systems" : ""
+    },
+    "Vulnerable Software" : {
+      "Use Secure payment systems" : ""
+    }
+  },
+  "Staff" : {
+    "Password Sharing" : {
+      "Training" : ""
+    },
+    "Insider threat" : {
+      "Monitoring software" : ""
+    },
+    "Social Engineering" : {
+      "Training" : ""
+    },
+    "Human Error" : {
+      "Training" : ""
+    }
+  },
+  "Customers" : {
+    "Theft" : {
+      "CCTV" : "",
+      "Security" : ""
+    },
+    "Damage" : {
+      "CCTV" : "",
+      "Security" : ""
+    },
+    "Violence" : {
+      "CCTV" : "",
+      "Security" : ""
+    }
+  },
+  "Buildings" : {
+    "Broken Locks" : {
+      "Upgrade locks" : ""
+    },
+    "Broken Windows" : {
+      "Repair Windows" : ""
+    },
+    "Open Doors" : {
+      "Lock doors" : "",
+      "CCTV" : ""
+    },
+    "Open Widows" : {
+      "Lock windows" : "",
+      "CCTV" : ""
+    },
+    "Natural disaster" : {
+      "Disaster recovery plan" : ""
+    }
+  },
+  "Inventory" : {
+    "Out of stock" : {
+      "Order more stock" : "",
+      "Use multiple suppliers" : ""
+    },
+    "Reputation damage" : "",
+    "Customer Loss" : ""
+  },
+  "Customer Data" : {
+    "Data confidentiality" : {
+      "DPA Compliance" : "",
+      "Data encryption" : ""
+    },
+    "Data Integrity" : {
+      "DPA Compliance" : "",
+      "Data encryption" : "",
+      "Backup" : ""
+    },
+    "Data Availability" : {
+      "DPA Compliance" : ""
+    },
+    "Reputation Damage" : {
+      "DPA Compliance" : "",
+      "Data encryption" : ""
+    },
+    "Identity Theft" : {
+      "DPA Compliance" : "",
+      "Data encryption" : ""
+    },
+    "Customer Loss" : {
+      "DPA Compliance" : "",
+      "Data encryption" : ""
+    }
+  }
+}

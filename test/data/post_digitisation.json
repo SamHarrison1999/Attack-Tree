@@ -1,0 +1,247 @@
+{
+  "Spoofing" : {
+    "Damage" : 10,
+    "Reproducibility" : 5,
+    "Exploitability" : 5,
+    "Affected Users" : 10,
+    "Discoverability" : 8,
+    "Probability" : 0.4,
+    "Threats" : {
+      "DNS spoofing attack" : {
+        "Mitigations" : {
+          "Packet Filtering" : "",
+          "IP Whitelisting" : "",
+          "Geo-Blocking" : "",
+          "E2E strict HTTPS connection" : ""
+        }
+      },
+      "IP spoofing attack" : {
+        "Mitigations" : {
+          "Packet Filtering" : "",
+          "IP Whitelisting" : "",
+          "Geo-Blocking" : "",
+          "E2E strict HTTPS connection" : ""
+        }
+      },
+      "Address resolution protocol spoofing attack" : {
+        "Mitigations" : {
+          "Packet Filtering" : "",
+          "IP Whitelisting" : "",
+          "Geo-Blocking" : "",
+          "E2E strict HTTPS connection" : ""
+        }
+      },
+      "Authentication bypass attack" : {
+        "Mitigations" : {
+          "Packet Filtering" : "",
+          "IP Whitelisting" : "",
+          "Geo-Blocking" : "",
+          "E2E strict HTTPS connection" : ""
+        }
+      },
+      "Routing manipulation attack" : {
+        "Mitigations" : {
+          "Packet Filtering" : "",
+          "IP Whitelisting" : "",
+          "Geo-Blocking" : "",
+          "E2E strict HTTPS connection" : ""
+        }
+      },
+      "IP table manipulation attack" : {
+        "Mitigations" : {
+          "Packet Filtering" : "",
+          "IP Whitelisting" : "",
+          "Geo-Blocking" : "",
+          "E2E strict HTTPS connection" : ""
+        }
+      }
+    }
+  },
+  "Tampering" : {
+    "Damage" : 10,
+    "Reproducibility" : 8,
+    "Exploitability" : 2,
+    "Affected Users" : 10,
+    "Discoverability" : 5,
+    "Probability" : 0.3,
+    "Threats" : {
+      "SQL Injection attack" : {
+        "Mitigations" : {
+          "Scan for malicious files" : "",
+          "CSFR Tokens" : ""
+        }
+      },
+      "XSS attack" : {
+        "Mitigations" : {
+          "Scan for malicious files" : "",
+          "CSFR Tokens" : ""
+        }
+      },
+      "Command injection attack" : {
+        "Mitigations" : {
+          "Scan for malicious files" : "",
+          "CSFR Tokens" : ""
+        }
+      },
+      "Path Traversal attack" : {
+        "Mitigations" : {
+          "Scan for malicious files" : "",
+          "CSFR Tokens" : ""
+        }
+      },
+      "Man in the middle attack" : {
+        "Mitigations" : {
+          "Scan for malicious files" : "",
+          "CSFR Tokens" : ""
+        }
+      }
+    }
+  },
+  "Repudiation" : {
+    "Damage" : 10,
+    "Reproducibility" : 10,
+    "Exploitability" : 5,
+    "Affected Users" : 6,
+    "Discoverability" :0,
+    "Probability" : 0.3,
+    "Threats" : {
+      "Log tampering" : {
+        "Mitigations" : {
+          "Event monitoring" : "",
+          "Logging" : "",
+          "Integrity checks" : ""
+        }
+      },
+      "Log deletion" : {
+        "Mitigations" : {
+          "Event monitoring" : "",
+          "Logging" : "",
+          "Integrity checks" : ""
+        }
+      }
+    }
+  },
+  "Information Disclosure" : {
+    "Damage" : 10,
+    "Reproducibility" : 10,
+    "Exploitability" : 5,
+    "Affected Users" : 6,
+    "Discoverability" : 0,
+    "Probability" : 0.3,
+    "Threats" : {
+      "Banner grabbing attack" : {
+        "Mitigations" : {
+          "PoLP" : "",
+          "Data Encryption" : "",
+          "Training" : ""
+        }
+      },
+      "Source code disclosure attack" : {
+        "Mitigations" : {
+          "PoLP" : "",
+          "Data Encryption" : "",
+          "Training" : ""
+        }
+      },
+      "File path disclosure attack" : {
+        "Mitigations" : {
+          "PoLP" : "",
+          "Data Encryption" : "",
+          "Training" : ""
+        }
+      },
+      "File name disclosure attack" : {
+        "Mitigations" : {
+          "PoLP" : "",
+          "Data Encryption" : "",
+          "Training" : ""
+        }
+      },
+      "Bucket information disclosure attack" : {
+        "Mitigations" : {
+          "PoLP" : "",
+          "Data Encryption" : "",
+          "Training" : ""
+        }
+      },
+      "Directory listing attack" : {
+        "Mitigations" : {
+          "PoLP" : "",
+          "Data Encryption" : "",
+          "Training" : ""
+        }
+      }
+    }
+  },
+  "Denial of Service" : {
+    "Damage" : 10,
+    "Reproducibility" : 5,
+    "Exploitability" : 2,
+    "Affected Users" : 10,
+    "Discoverability" : 8,
+    "Probability" : 0.4,
+    "Threats" : {
+      "DDoS attack" : {
+        "Mitigations" : {
+          "Disaster recovery plan" : "",
+          "Business continuity plan" : "",
+          "Rate limit APIs" : "",
+          "AWS Shield" : "",
+          "Network metrics" : ""
+        }
+      },
+      "HTTP flooding attack" : {
+        "Mitigations" : {
+          "Disaster recovery plan" : "",
+          "Business continuity plan" : "",
+          "Rate limit APIs" : "",
+          "AWS Shield" : "",
+          "Network metrics" : ""
+        }
+      },
+      "Ping of death attack" : {
+        "Mitigations" : {
+          "Disaster recovery plan" : "",
+          "Business continuity plan" : "",
+          "Rate limit APIs" : "",
+          "AWS Shield" : "",
+          "Network metrics" : ""
+        }
+      },
+      "Volume based attack" : {
+        "Mitigations" : {
+          "Disaster recovery plan" : "",
+          "Business continuity plan" : "",
+          "Rate limit APIs" : "",
+          "AWS Shield" : "",
+          "Network metrics" : ""
+        }
+      },
+      "SYN flooding attack" : {
+        "Mitigations" : {
+          "Disaster recovery plan" : "",
+          "Business continuity plan" : "",
+          "Rate limit APIs" : "",
+          "AWS Shield" : "",
+          "Network metrics" : ""
+        }
+      }
+    }
+  },
+  "Elevation of Privilege" : {
+    "Damage" : 10,
+    "Reproducibility" : 5,
+    "Exploitability" : 2,
+    "Affected Users" : 10,
+    "Discoverability" : 8,
+    "Probability" : 0.4,
+    "Threats" : {
+      "Violated authorisation" : {
+        "Mitigations" : {
+          "PoLP" : "",
+          "Access controls" : ""
+        }
+      }
+    }
+  }
+}
