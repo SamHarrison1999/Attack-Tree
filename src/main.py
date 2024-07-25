@@ -333,7 +333,6 @@ if __name__ == '__main__':
         1080,
         1920
     )
-
     # Setting the window title
     root.title('Attack Tree Application for Pampered Pets')
     root.resizable(False, False)
