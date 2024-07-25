@@ -262,28 +262,6 @@ def setup_notebook(frame: tk.Frame, data: dict[str]) -> list[tk.Canvas]:
         canvases.append(canvas)
     return canvases
 
-
-def draw_attack_tree(
-        app: tk.Tk,
-        data: dict[str],
-        dread_values: str,
-        key: str,
-        canvas: tk.Canvas
-) -> None:
-    """
-    Draw the attack tree using the data from the json file
-    :param app: The Tkinter application
-    :param data: The data from the json file
-    :param dread_values: The dread values for each vulnerability
-    :param key: The name of the nodes
-    :param canvas: The canvas being drawn on
-    :return: None
-    """
-    draw_root_node(app, canvas, dread_values)
-    for i, k in enumerate(data[key]['Threats'].keys()):
-        draw_child_nodes(app, canvas, i, k, len(data[key]['Threats']))
-
-
 if __name__ == '__main__':
     # Creating the application
     root = tk.Tk()
