@@ -2,7 +2,9 @@
 # Import statements
 import tkinter as tk
 from typing import Any
-import packages.threat_modelling
+from tkinter import ttk
+import packages.utils
+
 
 
 def clear_frame(frame: tk.Frame) -> None:
@@ -47,10 +49,7 @@ def pre_digitisation(
         pady=20
     )
     # Update the window title
-    packages.threat_modelling.set_window_title(
-        app,
-        'Pre Digitisation Attack Tree for Pampered Pets'
-    )
+    app.title ('Pre Digitisation Attack Tree for Pampered Pets')
     # Set up the individual tabs for the attack tree
     canvases = setup_notebook(
         pre_digitisation_attack_tree_frame, data
@@ -121,24 +120,22 @@ def draw_root_node(app: tk.Tk, canvas: tk.Canvas, text: str) -> None:
     :return: None
     """
     # Drawing the root node
-    packages.threat_modelling.draw_node(
-        canvas,
+    canvas.create_rectangle(
         app.winfo_width() // 4,
         20,
         (app.winfo_width() // 4) * 3,
         200,
-        "black",
-        "white",
-        2
+        outline="black",
+        fill="white",
+        width=2
     )
     # Adding the text to the root node
-    packages.threat_modelling.draw_text(
-        canvas,
+    canvas.create_text(
         app.winfo_width() // 2,
         120,
-        text,
-        (app.winfo_width() // 2),
-        15
+        font=("Verdana", 15),
+        text=text,
+        width=app.winfo_width() // 2
     )
 
 
@@ -155,25 +152,10 @@ def draw_child_nodes(app: tk.Tk, canvas: tk.Canvas, x: int, text: str, length: i
     # Drawing the child nodes
     x0 = 5 + app.winfo_width() // length * x
     x1 = x0 + app.winfo_width() // length - 20
-    packages.threat_modelling.draw_node(
-        canvas,
-        x0,
-        300,
-        x1,
-        400,
-        "black",
-        "white",
-        2
-    )
+    # Draw the node on the canvas
+    canvas.create_rectangle(x0, 300, x1, 400, outline="black", fill="white", width=2)
     # Drawing the text on the child nodes
-    packages.threat_modelling.draw_text(
-        canvas,
-        x0 + (x1 - x0) // 2,
-        350,
-        text,
-        200,
-        15
-    )
+    canvas.create_text(x0 + (x1 - x0) // 2, 350, font=("Verdana", 15), text=text, width=200)
 
 
 def draw_arrows(canvas: tk.Canvas, arrows: int, app: tk.Tk) -> None:
@@ -186,14 +168,14 @@ def draw_arrows(canvas: tk.Canvas, arrows: int, app: tk.Tk) -> None:
     """
     # Draws an arrow connecting each child node to the root node
     for i in range(1, arrows + 1):
-        packages.threat_modelling.draw_arrow(
-            canvas,
+        canvas.create_line(
             app.winfo_width() // 2,
             200,
             (app.winfo_width() // arrows) * i - (app.winfo_width() // arrows) // 2,
             300,
-            (10, 20, 10),
-            3
+            arrow=tk.LAST,
+            arrowshape=(10, 20, 10),
+            width=3
         )
 
 
@@ -228,10 +210,7 @@ def post_digitisation(
         pady=20
     )
     # Update the window title
-    packages.threat_modelling.set_window_title(
-        app,
-        'Post Digitisation Attack Tree for Pampered Pets'
-    )
+    app.title('Post Digitisation Attack Tree for Pampered Pets')
     # Set up the individual tabs for the attack tree
     canvases = setup_notebook(
         post_digitisation_attack_tree_frame, data
@@ -333,14 +312,16 @@ def setup_notebook(frame: tk.Frame, data: dict[str]) -> list[tk.Canvas]:
     :param data: The data from the json file
     :return: A list of the canvases
     """
-    notebook = packages.threat_modelling.create_notebook(frame)
+    notebook = ttk.Notebook(frame)
     canvases = []
     tabs = list(data.keys())
     # Creates a separate tab for each attack tree
     for i in range(len(data.keys())):
-        tab = packages.threat_modelling.create_tab(notebook, tabs[i])
-        canvas = packages.threat_modelling.create_canvas(tab)
-        packages.threat_modelling.pack_tabs(notebook)
+        tab = ttk.Frame(notebook)
+        notebook.add(tab, text=tabs[i])
+        canvas = tk.Canvas(tab)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
+        notebook.pack(expand=1, fill=tk.BOTH)
         canvases.append(canvas)
     return canvases
 
@@ -368,19 +349,16 @@ def draw_attack_tree(
 
 if __name__ == '__main__':
     # Creating the application
-    root = packages.threat_modelling.create_window()
+    root = tk.Tk()
     # Centering the app
-    packages.threat_modelling.center_window(
+    packages.utils.center_window(
         root,
         1080,
         1920
     )
 
     # Setting the window title
-    packages.threat_modelling.set_window_title(
-        root,
-        'Attack Tree Application for Pampered Pets'
-    )
+    root.title('Attack Tree Application for Pampered Pets')
     root.resizable(False, False)
     # Creating separate frames for the attack trees
     pre_digitisation_frame = tk.Frame(root)

@@ -1,9 +1,9 @@
-import unittest
-import tkinter
 import tkinter as tk
-from tkinter import ttk
+import unittest
+
 import main
-import packages.threat_modelling
+import packages.utils
+
 
 def _widgets_by_name(parent, name, widgets):
     if not parent.winfo_children():
@@ -116,19 +116,12 @@ class MyTestCase(unittest.TestCase):
         assert 'Elevation of Privilege' in tab_names
 
     def test_create_window(self):
-        app = packages.threat_modelling.create_window()
-        packages.threat_modelling.center_window(app, 1080, 1920)
+        app = tk.Tk()
+        packages.utils.center_window(app, 1080, 1920)
         assert app.winfo_screenwidth() == 1920
         assert app.winfo_screenheight() == 1080
         assert app.winfo_rootx() == 0
         assert app.winfo_rooty() == 0
-
-    def test_add_frame_to_notebook_tab(self):
-        app = packages.threat_modelling.create_window()
-        app.frame = tk.Frame(app)
-        packages.threat_modelling.create_notebook(app.frame)
-        app.canvas = packages.threat_modelling.create_canvas(app.frame)
-        packages.threat_modelling.add_frame_to_tab(app.canvas)
 
 if __name__ == '__main__':
     unittest.main()
