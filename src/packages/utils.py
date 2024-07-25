@@ -10,9 +10,10 @@ def read_json(file: str) -> dict[str]:
     :return: JSON file as dictionary
     """
     # Loads the json file into a dictionary
-    with open(file, "r") as json_file:
+    with open(file, "r", encoding="UTF-8") as json_file:
         data = json.load(json_file)
         return data
+
 
 def center_window(root: tk.Tk, height: int, width: int) -> None:
     """
