@@ -53,38 +53,12 @@ def pre_digitisation(
     canvases = setup_notebook(
         pre_digitisation_attack_tree_frame, data
     )
-    nodes = data.items()
     for i in range(len(list(data.keys()))):
+        key = list(data.keys())[i]
         draw_root_node(app, canvases[i], list(data.keys())[i])
-    for node in nodes:
-        for index, key in enumerate(dict(list(node)[1]).keys()):
-            if "Router" in list(node)[0]:
-                draw_arrows(canvases[0], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[0], index, key, len(list(node)[1]))
-            elif "Computers/Phones" in list(node)[0]:
-                draw_arrows(canvases[1], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[1], index, key, len(list(node)[1]))
-            elif "Database" in list(node)[0]:
-                draw_arrows(canvases[2], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[2], index, key, len(list(node)[1]))
-            elif "Payment System" in list(node)[0]:
-                draw_arrows(canvases[3], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[3], index, key, len(list(node)[1]))
-            elif "Staff" in list(node)[0]:
-                draw_arrows(canvases[4], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[4], index, key, len(list(node)[1]))
-            elif "Customers" in list(node)[0]:
-                draw_arrows(canvases[5], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[5], index, key, len(list(node)[1]))
-            elif "Buildings" in list(node)[0]:
-                draw_arrows(canvases[6], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[6], index, key, len(list(node)[1]))
-            elif "Inventory" in list(node)[0]:
-                draw_arrows(canvases[7], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[7], index, key, len(list(node)[1]))
-            elif "Customer Data" in list(node)[0]:
-                draw_arrows(canvases[8], len(list(node)[1]), app)
-                draw_child_nodes(app, canvases[8], index, key, len(list(node)[1]))
+        for index, k in enumerate(data[key]['Threats'].keys()):
+            draw_child_nodes(app, canvases[i], index, k, len(data[key]['Threats']))
+        draw_arrows(canvases[i], len(data[key]['Threats'].keys()), app)
     button_1.config(
         command=lambda: pre_digitisation(
             pre_digitisation_attack_tree_frame,
@@ -214,27 +188,13 @@ def post_digitisation(
     canvases = setup_notebook(
         post_digitisation_attack_tree_frame, data
     )
-    for key in data.keys():
-        # Draw the attack tree for each tab on the application
-        dread_values = get_dread_values(data, key)
-        if "Spoofing" in dread_values:
-            draw_attack_tree(app, data, dread_values, key, canvases[0])
-            draw_arrows(canvases[0],len(data[key]['Threats'].keys()), app)
-        elif "Tampering" in dread_values:
-            draw_attack_tree(app, data, dread_values, key, canvases[1])
-            draw_arrows(canvases[1], len(data[key]['Threats'].keys()), app)
-        elif "Repudiation" in dread_values:
-            draw_attack_tree(app, data, dread_values, key, canvases[2])
-            draw_arrows(canvases[2], len(data[key]['Threats'].keys()), app)
-        elif "Information Disclosure" in dread_values:
-            draw_attack_tree(app, data, dread_values, key, canvases[3])
-            draw_arrows(canvases[3], len(data[key]['Threats'].keys()), app)
-        elif "Denial of Service" in dread_values:
-            draw_attack_tree(app, data, dread_values, key, canvases[4])
-            draw_arrows(canvases[4], len(data[key]['Threats'].keys()), app)
-        elif "Elevation of Privilege" in dread_values:
-            draw_attack_tree(app, data, dread_values, key, canvases[5])
-            draw_arrows(canvases[5], len(data[key]['Threats'].keys()), app)
+    for i in range(len(list(data.keys()))):
+        dread_values = get_dread_values(data, list(data.keys())[i])
+        key = list(data.keys())[i]
+        draw_root_node(app, canvases[i], dread_values)
+        for index, k in enumerate(data[key]['Threats'].keys()):
+            draw_child_nodes(app, canvases[i], index, k, len(data[key]['Threats']))
+        draw_arrows(canvases[i], len(data[key]['Threats'].keys()), app)
     # Button configurations to switch between frames
     button_1.config(
         command= lambda : pre_digitisation(

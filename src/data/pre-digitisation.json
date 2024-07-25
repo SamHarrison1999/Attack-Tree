@@ -1,151 +1,241 @@
 {
-  "Router" : {
-    "Weak Password" : {
-      "Password policies" : ""
-    },
-    "Network Outage" : {
-      "Backup Network" : ""
-    },
-    "Network based attacks" : {
-      "Separate networks" : "",
-      "Firewalls" : ""
+  "Router": {
+    "Threats": {
+      "Weak Password": {
+        "Mitigations": {
+          "Password policies": ""
+        }
+      },
+      "Network Outage": {
+        "Mitigations": {
+          "Backup Network": ""
+        }
+      },
+      "Network based attacks": {
+        "Mitigations": {
+          "Separate networks": "",
+          "Firewalls": ""
+        }
+      }
     }
   },
-  "Computers/Phones" : {
-    "Weak Password" : {
-      "Password policies" : ""
-    },
-    "Outdated Software" : {
-      "Update software" : ""
-    },
-    "Malware" : {
-      "Anti-Virus software" : "",
-      "Block removable storage devices" : ""
-    },
-    "Phishing" : {
-      "Anti-Virus software" : "",
-      "Block removable storage devices" : ""
-    },
-    "Ransomware" : {
-      "Anti-Virus software" : "",
-      "Block removable storage devices" : ""
-    },
-    "Unauthorised Access" : {
-      "MFA" : ""
+  "Computers/Phones": {
+    "Threats": {
+      "Weak Password": {
+        "Mitigations": {
+          "Password policies": ""
+        }
+      },
+      "Outdated Software": {
+        "Mitigations": {
+          "Update software": ""
+        }
+      },
+      "Malware": {
+        "Mitigations": {
+          "Anti-Virus software": "",
+          "Block removable storage devices": ""
+        }
+      },
+      "Phishing": {
+        "Mitigations": {
+          "Anti-Virus software": "",
+          "Block removable storage devices": ""
+        }
+      },
+      "Ransomware": {
+        "Mitigations": {
+          "Anti-Virus software": "",
+          "Block removable storage devices": ""
+        }
+      },
+      "Unauthorised Access": {
+        "Mitigations": {
+          "MFA": ""
+        }
+      }
     }
   },
-  "Databases" : {
-    "Unauthorised Access" : {
-      "Firewalls" : "",
-      "PoLP" : ""
-    },
-    "Data Manipulation" : {
-      "Backups ": "",
-      "PoLP" : ""
-    },
-    "Data Erasure" : {
-      "Backups" : "",
-      "PoLP" : ""
-    },
-    "Inject Attacks" : {
-      "Prepared Statements" : "",
-      "Character Escaping" : "",
-      "Character Encoding" : ""
+  "Databases": {
+    "Threats": {
+      "Unauthorised Access": {
+        "Mitigations": {
+          "Firewalls": "",
+          "PoLP": ""
+        }
+      },
+      "Data Manipulation": {
+        "Mitigations": {
+          "Backups ": "",
+          "PoLP": ""
+        }
+      },
+      "Data Erasure": {
+        "Mitigations": {
+          "Backups": "",
+          "PoLP": ""
+        }
+      },
+      "Inject Attacks": {
+        "Mitigations": {
+          "Prepared Statements": "",
+          "Character Escaping": "",
+          "Character Encoding": ""
+        }
+      }
     }
   },
-  "Payment System" : {
-    "Identity Theft" : {
-      "Use Secure payment systems" : ""
-    },
-    "Credit card fraud" : {
-      "Use Secure payment systems" : ""
-    },
-    "Unencrypted Data" : {
-      "Use Secure payment systems" : ""
-    },
-    "Vulnerable Software" : {
-      "Use Secure payment systems" : ""
+  "Payment System": {
+    "Threats": {
+      "Identity Theft": {
+        "Mitigations": {
+          "Use Secure payment systems": ""
+        }
+      },
+      "Credit card fraud": {
+        "Mitigations": {
+          "Use Secure payment systems": ""
+        }
+      },
+      "Unencrypted Data": {
+        "Mitigations": {
+          "Use Secure payment systems": ""
+        }
+      },
+      "Vulnerable Software": {
+        "Mitigations": {
+          "Use Secure payment systems": ""
+        }
+      }
     }
   },
-  "Staff" : {
-    "Password Sharing" : {
-      "Training" : ""
-    },
-    "Insider threat" : {
-      "Monitoring software" : ""
-    },
-    "Social Engineering" : {
-      "Training" : ""
-    },
-    "Human Error" : {
-      "Training" : ""
+  "Staff": {
+    "Threats": {
+      "Password Sharing": {
+        "Mitigations": {
+          "Training": ""
+        }
+      },
+      "Insider threat": {
+        "Mitigations": {
+          "Monitoring software": ""
+        }
+      },
+      "Social Engineering": {
+        "Mitigations": {
+          "Training": ""
+        }
+      },
+      "Human Error": {
+        "Mitigations": {
+          "Training": ""
+        }
+      }
     }
   },
-  "Customers" : {
-    "Theft" : {
-      "CCTV" : "",
-      "Security" : ""
-    },
-    "Damage" : {
-      "CCTV" : "",
-      "Security" : ""
-    },
-    "Violence" : {
-      "CCTV" : "",
-      "Security" : ""
+  "Customers": {
+    "Threats": {
+      "Theft": {
+        "Mitigations": {
+          "CCTV": "",
+          "Security": ""
+        }
+      },
+      "Damage": {
+        "Mitigations": {
+          "CCTV": "",
+          "Security": ""
+        }
+      },
+      "Violence": {
+        "Mitigations": {
+          "CCTV": "",
+          "Security": ""
+        }
+      }
     }
   },
-  "Buildings" : {
-    "Broken Locks" : {
-      "Upgrade locks" : ""
-    },
-    "Broken Windows" : {
-      "Repair Windows" : ""
-    },
-    "Open Doors" : {
-      "Lock doors" : "",
-      "CCTV" : ""
-    },
-    "Open Widows" : {
-      "Lock windows" : "",
-      "CCTV" : ""
-    },
-    "Natural disaster" : {
-      "Disaster recovery plan" : ""
+  "Buildings": {
+    "Threats": {
+      "Broken Locks": {
+        "Mitigations": {
+          "Upgrade locks": ""
+        }
+      },
+      "Broken Windows": {
+        "Mitigations": {
+          "Repair Windows": ""
+        }
+      },
+      "Open Doors": {
+        "Mitigations": {
+          "Lock doors": "",
+          "CCTV": ""
+        }
+      },
+      "Open Widows": {
+        "Mitigations": {
+          "Lock windows": "",
+          "CCTV": ""
+        }
+      },
+      "Natural disaster": {
+        "Mitigations": {
+          "Disaster recovery plan": ""
+        }
+      }
     }
   },
-  "Inventory" : {
-    "Out of stock" : {
-      "Order more stock" : "",
-      "Use multiple suppliers" : ""
-    },
-    "Reputation damage" : "",
-    "Customer Loss" : ""
+  "Inventory": {
+    "Threats": {
+      "Out of stock": {
+        "Mitigations": {
+          "Order more stock": "",
+          "Use multiple suppliers": ""
+        }
+      },
+      "Reputation damage": "",
+      "Customer Loss": ""
+    }
   },
-  "Customer Data" : {
-    "Data confidentiality" : {
-      "DPA Compliance" : "",
-      "Data encryption" : ""
-    },
-    "Data Integrity" : {
-      "DPA Compliance" : "",
-      "Data encryption" : "",
-      "Backup" : ""
-    },
-    "Data Availability" : {
-      "DPA Compliance" : ""
-    },
-    "Reputation Damage" : {
-      "DPA Compliance" : "",
-      "Data encryption" : ""
-    },
-    "Identity Theft" : {
-      "DPA Compliance" : "",
-      "Data encryption" : ""
-    },
-    "Customer Loss" : {
-      "DPA Compliance" : "",
-      "Data encryption" : ""
+  "Customer Data": {
+    "Threats": {
+      "Data confidentiality": {
+        "Mitigations": {
+          "DPA Compliance": "",
+          "Data encryption": ""
+        }
+      },
+      "Data Integrity": {
+        "Mitigations": {
+          "DPA Compliance": "",
+          "Data encryption": "",
+          "Backup": ""
+        }
+      },
+      "Data Availability": {
+        "Mitigations": {
+          "DPA Compliance": ""
+        }
+      },
+      "Reputation Damage": {
+        "Mitigations": {
+          "DPA Compliance": "",
+          "Data encryption": ""
+        }
+      },
+      "Identity Theft": {
+        "Mitigations": {
+          "DPA Compliance": "",
+          "Data encryption": ""
+        }
+      },
+      "Customer Loss": {
+        "Mitigations": {
+          "DPA Compliance": "",
+          "Data encryption": ""
+        }
+      }
     }
   }
 }
