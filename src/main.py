@@ -1,10 +1,9 @@
 """Main application file"""
 # Import statements
 import tkinter as tk
-from typing import Any
 from tkinter import ttk
-import packages.utils
 
+import packages.utils
 
 
 def clear_frame(frame: tk.Frame) -> None:
@@ -217,7 +216,7 @@ def post_digitisation(
     )
     for key in data.keys():
         # Draw the attack tree for each tab on the application
-        dread_values = set_up_nodes(data, key)
+        dread_values = get_dread_values(data, key)
         if "Spoofing" in dread_values:
             draw_attack_tree(app, data, dread_values, key, canvases[0])
             draw_arrows(canvases[0],len(data[key]['Threats'].keys()), app)
@@ -262,37 +261,11 @@ def post_digitisation(
     )
 
 
-def set_up_nodes(data: dict[str], key: str) -> str:
-    """
-    Sets up the nodes on the attack trees
-    :param data: The data from the json file
-    :param key: The name of a node
-    :return: The node with the data from the json file
-    """
-    # Sets up the root nodes with DREAD values
-    root_nodes = setup_root_node(data, key)
-    return get_dread_values(key, root_nodes)
-
-
-def get_dread_values(key: str, root_nodes: dict[str, list[Any]]) -> str:
-    """
-    Gets the DREAD values from the json file
-    :param key: The name of a node
-    :param root_nodes: The root nodes in the attack tree
-    :return: The DREAD Values associated with each vulnerability
-    """
-    # Reads the DREAD values for STRIDE vulnerabilities from the json file
-    dread_values = key + "\n"
-    for x in range(len(root_nodes[key])):
-        dread_values += root_nodes[key][x] + "\n"
-    return dread_values
-
-
-def setup_root_node(data: dict[str], key: str) -> dict[str, list[Any]]:
+def get_dread_values(data: dict[str], key: str) -> str:
     """
     :param data: The data from the json file
     :param key: The keys from the json file
-    :return: The root nodes
+    :return: The root nodes with the dread values from the json file
     """
     # Sets up the root nodes
     root_nodes = {}
@@ -301,7 +274,11 @@ def setup_root_node(data: dict[str], key: str) -> dict[str, list[Any]]:
         if k != 'Threats':
             stride_values.append(k + " - " + str(v))
             root_nodes[key] = stride_values
-    return root_nodes
+    # Reads the DREAD values from the json file
+    dread_values = key + "\n"
+    for x in range(len(root_nodes[key])):
+        dread_values += root_nodes[key][x] + "\n"
+    return dread_values
 
 
 
