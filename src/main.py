@@ -17,30 +17,31 @@ def clear_frame(frame: tk.Frame) -> None:
         widget.destroy()
         frame.pack_forget()
 
+
 def pre_digitisation(
-        pre_digitisation_attack_tree_frame: tk.Frame,
-        post_digitisation_attack_tree_frame: tk.Frame,
+        frame_one: tk.Frame,
+        frame_two: tk.Frame,
         app: tk.Tk,
         button_1: tk.Button,
         button_2: tk.Button
 ) -> None:
     """
     Creates the pre-digitisation attack tree
-    :param pre_digitisation_attack_tree_frame: The pre-digitisation attack tree frame
-    :param post_digitisation_attack_tree_frame: The post-digitisation attack tree frame
+    :param frame_one: The pre-digitisation frame
+    :param frame_two: The post-digitisation frame
     :param app: The Tkinter application
     :param button_1: Load the pre-digitisation attack trees
     :param button_2: Load the post-digitisation attack trees
     :return: None
     """
     # Clear the screen
-    clear_frame(pre_digitisation_attack_tree_frame)
-    clear_frame(post_digitisation_attack_tree_frame)
+    clear_frame(frame_one)
+    clear_frame(frame_two)
     # Read the data from the json file
     data = packages.utils.read_json('data/pre-digitisation.json')
     # Update the title label
     tk.Label(
-        pre_digitisation_attack_tree_frame,
+        frame_one,
         text="Pre Digitisation Attack Tree",
         font=("Verdana", 28)
     ).pack(
@@ -48,37 +49,43 @@ def pre_digitisation(
         pady=20
     )
     # Update the window title
-    app.title ('Pre Digitisation Attack Tree for Pampered Pets')
+    app.title('Pre Digitisation Attack Tree for Pampered Pets')
     # Set up the individual tabs for the attack tree
     canvases = setup_gui(
-        pre_digitisation_attack_tree_frame, data
+        frame_one, data
     )
     for i in range(len(list(data.keys()))):
         key = list(data.keys())[i]
         draw_root_node(app, canvases[i], list(data.keys())[i])
         for index, k in enumerate(data[key]['Threats'].keys()):
-            draw_child_nodes(app, canvases[i], index, k, len(data[key]['Threats']))
+            draw_child_nodes(
+                app,
+                canvases[i],
+                index,
+                k,
+                len(data[key]['Threats'])
+            )
         draw_arrows(canvases[i], len(data[key]['Threats'].keys()), app)
     button_1.config(
         command=lambda: pre_digitisation(
-            pre_digitisation_attack_tree_frame,
-            post_digitisation_attack_tree_frame,
+            frame_one,
+            frame_two,
             app,
             button_1,
             button_2
         )
     )
     button_2.config(
-        command= lambda : post_digitisation(
-            post_digitisation_attack_tree_frame,
-            pre_digitisation_attack_tree_frame,
+        command=lambda: post_digitisation(
+            frame_one,
+            frame_two,
             app,
             button_1,
             button_2
         )
     )
     # Put the frame on the screen
-    pre_digitisation_attack_tree_frame.pack(
+    frame_one.pack(
         fill='both',
         expand=1
     )
@@ -112,7 +119,13 @@ def draw_root_node(app: tk.Tk, canvas: tk.Canvas, text: str) -> None:
     )
 
 
-def draw_child_nodes(app: tk.Tk, canvas: tk.Canvas, x: int, text: str, length: int) -> None:
+def draw_child_nodes(
+        app: tk.Tk,
+        canvas: tk.Canvas,
+        x: int,
+        text: str,
+        length: int
+) -> None:
     """
     Drawing the child nodes
     :param app: The application
@@ -126,9 +139,23 @@ def draw_child_nodes(app: tk.Tk, canvas: tk.Canvas, x: int, text: str, length: i
     x0 = 5 + app.winfo_width() // length * x
     x1 = x0 + app.winfo_width() // length - 20
     # Draw the node on the canvas
-    canvas.create_rectangle(x0, 300, x1, 400, outline="black", fill="white", width=2)
+    canvas.create_rectangle(
+        x0,
+        300,
+        x1,
+        400,
+        outline="black",
+        fill="white",
+        width=2
+    )
     # Drawing the text on the child nodes
-    canvas.create_text(x0 + (x1 - x0) // 2, 350, font=("Verdana", 15), text=text, width=200)
+    canvas.create_text(
+        x0 + (x1 - x0) // 2,
+        350,
+        font=("Verdana", 15),
+        text=text,
+        width=200
+    )
 
 
 def draw_arrows(canvas: tk.Canvas, arrows: int, app: tk.Tk) -> None:
@@ -144,7 +171,8 @@ def draw_arrows(canvas: tk.Canvas, arrows: int, app: tk.Tk) -> None:
         canvas.create_line(
             app.winfo_width() // 2,
             200,
-            (app.winfo_width() // arrows) * i - (app.winfo_width() // arrows) // 2,
+            (app.winfo_width() // arrows) * i
+            - (app.winfo_width() // arrows) // 2,
             300,
             arrow=tk.LAST,
             arrowshape=(10, 20, 10),
@@ -153,29 +181,29 @@ def draw_arrows(canvas: tk.Canvas, arrows: int, app: tk.Tk) -> None:
 
 
 def post_digitisation(
-        post_digitisation_attack_tree_frame: tk.Frame,
-        pre_digitisation_attack_tree_frame: tk.Frame,
+        frame_one: tk.Frame,
+        frame_two: tk.Frame,
         app: tk.Tk,
         button_1: tk.Button,
         button_2: tk.Button
 ) -> None:
     """
     Creates the post-digitisation attack tree
-    :param post_digitisation_attack_tree_frame: The post-digitisation attack tree frame
-    :param pre_digitisation_attack_tree_frame: The pre-digitisation attack tree frame
+    :param frame_one: The post-digitisation frame
+    :param frame_two: The pre-digitisation frame
     :param app: The Tkinter application
     :param button_1: Load the pre-digitisation attack trees
     :param button_2: Load the post-digitisation attack trees
     :return: None
     """
     # Clear the screen
-    clear_frame(pre_digitisation_attack_tree_frame)
-    clear_frame(post_digitisation_attack_tree_frame)
+    clear_frame(frame_two)
+    clear_frame(frame_one)
     # Read the data from the json file
     data = packages.utils.read_json('data/post_digitisation.json')
     # Update the title label
     tk.Label(
-        post_digitisation_attack_tree_frame,
+        frame_one,
         text="Post Digitisation Attack Tree",
         font=("Verdana", 28)
     ).pack(
@@ -186,36 +214,46 @@ def post_digitisation(
     app.title('Post Digitisation Attack Tree for Pampered Pets')
     # Set up the individual tabs for the attack tree
     canvases = setup_gui(
-        post_digitisation_attack_tree_frame, data
+        frame_one,
+        data
     )
     for i in range(len(list(data.keys()))):
-        dread_values = get_dread_values(data, list(data.keys())[i])
+        dread_values = get_dread_values(
+            data,
+            list(data.keys())[i]
+        )
         key = list(data.keys())[i]
         draw_root_node(app, canvases[i], dread_values)
         for index, k in enumerate(data[key]['Threats'].keys()):
-            draw_child_nodes(app, canvases[i], index, k, len(data[key]['Threats']))
+            draw_child_nodes(
+                app,
+                canvases[i],
+                index,
+                k,
+                len(data[key]['Threats'])
+            )
         draw_arrows(canvases[i], len(data[key]['Threats'].keys()), app)
     # Button configurations to switch between frames
     button_1.config(
-        command= lambda : pre_digitisation(
-            pre_digitisation_attack_tree_frame,
-            post_digitisation_attack_tree_frame,
+        command=lambda: pre_digitisation(
+            frame_one,
+            frame_two,
             app,
             button_1,
             button_2
         )
     )
     button_2.config(
-        command= lambda : post_digitisation(
-            post_digitisation_attack_tree_frame,
-            pre_digitisation_attack_tree_frame,
+        command=lambda: post_digitisation(
+            frame_one,
+            frame_two,
             app,
             button_1,
             button_2
         )
     )
     # Put the frame on the screen
-    post_digitisation_attack_tree_frame.pack(
+    frame_one.pack(
         fill='both',
         expand=1
     )
@@ -241,7 +279,6 @@ def get_dread_values(data: dict[str], key: str) -> str:
     return dread_values
 
 
-
 def setup_gui(frame: tk.Frame, data: dict[str]) -> list[tk.Canvas]:
     """
     Creates a canvas for each of the individual tabs in the notebook
@@ -261,6 +298,7 @@ def setup_gui(frame: tk.Frame, data: dict[str]) -> list[tk.Canvas]:
         notebook.pack(expand=1, fill=tk.BOTH)
         canvases.append(canvas)
     return canvases
+
 
 if __name__ == '__main__':
     # Creating the application
@@ -283,7 +321,7 @@ if __name__ == '__main__':
         text="View Pre Digitisation Attack Tree",
         name="button-one",
         font=("Verdana", 28),
-        command=lambda : pre_digitisation(
+        command=lambda: pre_digitisation(
             pre_digitisation_frame,
             post_digitisation_frame,
             root,
