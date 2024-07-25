@@ -50,7 +50,7 @@ def pre_digitisation(
     # Update the window title
     app.title ('Pre Digitisation Attack Tree for Pampered Pets')
     # Set up the individual tabs for the attack tree
-    canvases = setup_notebook(
+    canvases = setup_gui(
         pre_digitisation_attack_tree_frame, data
     )
     for i in range(len(list(data.keys()))):
@@ -185,7 +185,7 @@ def post_digitisation(
     # Update the window title
     app.title('Post Digitisation Attack Tree for Pampered Pets')
     # Set up the individual tabs for the attack tree
-    canvases = setup_notebook(
+    canvases = setup_gui(
         post_digitisation_attack_tree_frame, data
     )
     for i in range(len(list(data.keys()))):
@@ -242,7 +242,7 @@ def get_dread_values(data: dict[str], key: str) -> str:
 
 
 
-def setup_notebook(frame: tk.Frame, data: dict[str]) -> list[tk.Canvas]:
+def setup_gui(frame: tk.Frame, data: dict[str]) -> list[tk.Canvas]:
     """
     Creates a canvas for each of the individual tabs in the notebook
     :param frame: The frame the canvas is being added to
