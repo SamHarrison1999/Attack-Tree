@@ -1,20 +1,25 @@
-name: flake8 Lint
+name: Flak8
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  flake8-lint:
+  build:
     runs-on: ubuntu-latest
-    name: Lint
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10"]
     steps:
-      - name: Check out source repository
-        uses: actions/checkout@v3
-      - name: Set up Python environment
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-      - name: flake8 Lint
-        uses: py-actions/flake8@v2
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flak8
+    - name: flake8 Lint
+      uses: py-actions/flake8@v2
         with:
           max-line-length: "100"
           path: "src"
